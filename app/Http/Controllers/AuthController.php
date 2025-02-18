@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     // Tampilkan form login
+    public function showLoginForm()
+    {
+        return view('auth.login'); // Kembali ke halaman login
+    }
+
     public function loginForm()
     {
         return view('auth.login');
