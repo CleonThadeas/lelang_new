@@ -11,9 +11,14 @@ use App\Http\Controllers\TawarController;
 use App\Http\Controllers\LaporanController;
 
 // Halaman utama -> redirect ke login
-Route::get('/', function() {
-    return redirect()->route('login.form');
+Route::get('/', function () {
+    return view('auth.welcome'); // Halaman default
 });
+
+Route::get('/login', function () {
+    return view('auth.login'); // Halaman login
+});
+
 
 // Auth
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login.form');
