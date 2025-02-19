@@ -3,64 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - LelangLee</title>
+    <title>LelangLee - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body { background-color: #2c2c2c; color: white; }
-        .sidebar { background: #3d3d3d; height: 100vh; padding: 20px; }
-        .sidebar a { color: white; text-decoration: none; }
-        .sidebar a:hover { color: #f4a261; }
+        .navbar { background-color: #3d3d3d; }
+        .hero-section { background: #5a2d82; padding: 50px 0; text-align: center; color: white; }
+        .search-section { background: #fff; color: black; padding: 20px; border-radius: 10px; }
+        .category-icons img { width: 50px; margin: 5px; }
+        .auction-card { background: #3d3d3d; padding: 20px; border-radius: 10px; color: white; }
     </style>
 </head>
 <body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div class="sidebar p-3">
-            <h3 class="text-center">LelangLee</h3>
-            <p class="text-center">Halo, {{ session('username') }} ({{ session('level') == 1 ? 'Admin' : (session('level') == 2 ? 'Petugas' : 'Masyarakat') }})</p>
-            <ul class="list-unstyled">
-                @if(session('level') == 1)
-                    <li><a href="{{ route('petugas.index') }}"><i class="fa fa-user-shield"></i> Kelola Petugas</a></li>
-                @endif
-                @if(session('level') <= 2)
-                    <li><a href="{{ route('barang.index') }}"><i class="fa fa-box"></i> Kelola Barang</a></li>
-                    <li><a href="{{ route('lelang.index') }}"><i class="fa fa-gavel"></i> Kelola Lelang</a></li>
-                    <li><a href="{{ route('laporan.index') }}"><i class="fa fa-file-alt"></i> Laporan</a></li>
-                @else
-                    <li><a href="{{ route('list.barang') }}"><i class="fa fa-eye"></i> Lihat Barang Lelang</a></li>
-                @endif
-                <li><a href="{{ route('logout') }}" class="text-danger"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">LelangLee</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Jadwal Lelang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Beli NPL</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning text-dark" href="#">Masuk</a></li>
+                </ul>
+            </div>
         </div>
-        
-        <!-- Content -->
-        <div class="container-fluid p-4">
-            <h2>Dashboard</h2>
-            <p>Selamat datang di sistem lelang online LelangLee!</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white p-3">
-                        <h4><i class="fa fa-users"></i> Total Pengguna</h4>
-                        <p>{{ $totalUsers ?? 0 }} pengguna</p>
-                    </div>
+    </nav>
+    
+    <div class="hero-section">
+        <h1>Pembaruan Syarat dan Ketentuan</h1>
+        <h2>LELANGLEE 2025</h2>
+        <button class="btn btn-warning">Pelajari Lebih Lanjut</button>
+    </div>
+
+    <div class="container my-4">
+        <div class="search-section">
+            <h4>Selamat Pagi, sedang mencari lelang apa?</h4>
+            <div class="row mt-3">
+                <div class="col-md-3"><input type="text" class="form-control" placeholder="Merk"></div>
+                <div class="col-md-3"><input type="text" class="form-control" placeholder="Seri"></div>
+                <div class="col-md-3"><input type="text" class="form-control" placeholder="Tahun"></div>
+                <div class="col-md-3"><button class="btn btn-dark w-100">Cari</button></div>
+            </div>
+        </div>
+
+        <h4 class="mt-4">Jadwal Lelang Terdekat</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="auction-card">
+                    <h5>19 Feb - Jakarta</h5>
+                    <p>13.00 WIB - Live</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white p-3">
-                        <h4><i class="fa fa-box"></i> Total Barang</h4>
-                        <p>{{ $totalBarang ?? 0 }} barang dilelang</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="auction-card">
+                    <h5>19 Feb - Surabaya</h5>
+                    <p>14.00 WIB - Live</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white p-3">
-                        <h4><i class="fa fa-gavel"></i> Total Lelang</h4>
-                        <p>{{ $totalLelang ?? 0 }} lelang aktif</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="auction-card">
+                    <h5>19 Feb - Palembang</h5>
+                    <p>14.00 WIB - Live</p>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
