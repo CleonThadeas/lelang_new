@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            LevelSeeder::class
+            LevelSeeder::class,  // Pastikan LevelSeeder dijalankan lebih dulu
+            PetugasSeeder::class, // PetugasSeeder dijalankan setelahnya
         ]);
 
         User::factory()->create([
