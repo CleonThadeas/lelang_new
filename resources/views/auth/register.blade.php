@@ -29,20 +29,20 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px;
         }
 
         /* HEADER */
         .header {
-            background: var(--dark-gray);
-            color: var(--light-gray);
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
-            font-size: 26px;
-            font-weight: bold;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
+        }
+
+        .header img {
+            max-height: 180px; /* Ukuran logo lebih besar */
+            width: auto;
         }
 
         /* CONTAINER */
@@ -64,7 +64,7 @@
 
         h1 {
             color: var(--dark-gray);
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 20px;
         }
 
@@ -120,45 +120,23 @@
             transform: scale(1.05);
         }
 
-        .footer {
-            background: var(--light-gray);
-            text-align: center;
-            padding: 15px;
-            color: var(--dark-gray);
-            font-size: 14px;
-            font-weight: bold;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
                 padding: 20px;
             }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            input {
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            button {
-                font-size: 16px;
-                padding: 10px;
+            .header img {
+                max-height: 150px; /* Sesuaikan logo untuk mobile */
             }
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
-    <div class="header">LelangLee - Register</div>
+    <div class="header">
+        <img src="{{ asset('img/lelanglee_.png') }}" alt="LelangLee Logo">
+    </div>
 
     <!-- FORM REGISTER -->
     <div class="container">
@@ -203,8 +181,5 @@
             <button type="submit">Register</button>
         </form>
     </div>
-
-    <!-- FOOTER -->
-    <div class="footer">&copy; 2025 LelangLee | All Rights Reserved</div>
 </body>
 </html>
