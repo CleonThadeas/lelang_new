@@ -8,17 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body { background-color: #2c2c2c; color: white; }
-        .navbar { background-color: #3d3d3d; }
+        .navbar { background-color: #3d3d3d; padding: 15px; }
         .hero-section { background: #5a2d82; padding: 50px 0; text-align: center; color: white; }
         .search-section { background: #fff; color: black; padding: 20px; border-radius: 10px; }
         .category-icons img { width: 50px; margin: 5px; }
         .auction-card { background: #3d3d3d; padding: 20px; border-radius: 10px; color: white; }
+        
+        .logo {
+            height: 100px;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">LelangLee</a>
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('img/lelanglee_.png') }}" alt="LelangLee Logo" class="logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
