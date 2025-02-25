@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Chart } from 'chart.js';
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -12,3 +13,5 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: false // atau true jika pakai https
 });
+
+lelangChart.data.datasets[0].data.push(e.harga);

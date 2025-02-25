@@ -60,6 +60,8 @@ class KelolaLelangController extends Controller
         ]);
 
         return redirect()->route('lelang.index');
+
+        
     }
 
     /**
