@@ -11,6 +11,7 @@ html
     @endif
     <table border="1" cellpadding="5">
         <tr>
+            <th>Foto</th> <!-- Tambahkan kolom foto -->
             <th>ID Lelang</th>
             <th>Nama Barang</th>
             <th>Harga Awal</th>
@@ -19,6 +20,14 @@ html
         </tr>
         @foreach($lelangs as $l)
         <tr>
+            <!-- Menampilkan foto barang -->
+            <td>
+                @if($l->barang->foto)
+                    <img src="{{ asset($l->barang->foto) }}" alt="Foto Barang" width="100">
+                @else
+                    Tidak ada foto
+                @endif
+            </td>
             <td>{{ $l->id_lelang }}</td>
             <td>{{ $l->barang->nama_barang }}</td>
             <td>{{ $l->barang->harga_awal }}</td>

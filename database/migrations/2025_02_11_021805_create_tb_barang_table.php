@@ -14,6 +14,7 @@ return new class extends Migration
             $table->date('tgl');
             $table->decimal('harga_awal', 15, 2);
             $table->text('deskripsi_barang')->nullable();
+            $table->string('foto')->nullable();
         });
     }
 

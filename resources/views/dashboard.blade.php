@@ -17,10 +17,12 @@ html
         @if(session('level') == 1)
             <li><a href="{{ route('petugas.index') }}">Kelola Petugas</a></li>
             <li><a href="{{ route('barang.index') }}">Kelola Barang</a></li>
+            <li><a href="{{ route('lelang.live.admin') }}">Live Lelang</a></li>
             <li><a href="{{ route('lelang.index') }}">Kelola Lelang</a></li>
             <li><a href="{{ route('laporan.index') }}">Laporan</a></li>
         @elseif(session('level') == 2)
             <li><a href="{{ route('barang.index') }}">Kelola Barang</a></li>
+            <li><a href="{{ route('lelang.live.admin') }}">Live Lelang</a></li>
             <li><a href="{{ route('lelang.index') }}">Kelola Lelang</a></li>
             <li><a href="{{ route('laporan.index') }}">Laporan</a></li>
         @else
