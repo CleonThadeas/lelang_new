@@ -10,10 +10,10 @@ use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\TawarController;
 use App\Http\Controllers\LaporanController;
 
-// Halaman utama -> redirect ke login
-Route::get('/', function() {
-    return redirect()->route('login.form');
+Route::get('/', function () {
+    return view('auth.welcome');
 });
+
 
 // Auth
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login.form');
@@ -47,3 +47,9 @@ Route::post('/tawar/{id_lelang}', [TawarController::class, 'store'])->name('tawa
 
 // Laporan (Admin/Petugas)
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::post('/kelola-barang/store', [KelolaBarangController::class, 'store'])->name('kelola.barang.store');
+
+// Halaman admin live lelang
+Route::get('/admin/live-lelang', [KelolaLelangController::class, 'adminLiveLelang'])->name('lelang.live.admin');
+
+Route::post('/lelang/{id_lelang}/tawar', [KelolaLelangController::class, 'storePenawaran'])->name('lelang.storePenawaran');

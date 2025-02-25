@@ -13,6 +13,7 @@ return new class extends Migration
             $table->unsignedInteger('id_lelang');
             $table->unsignedInteger('id_user');
             $table->decimal('penawaran_harga', 15, 2);
+            $table->timestamps();
             // foreign
             $table->foreign('id_lelang')->references('id_lelang')->on('tb_lelang');
             $table->foreign('id_user')->references('id_user')->on('tb_masyarakat');
